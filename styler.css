@@ -1,0 +1,63 @@
+.header {
+
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+
+    background-color:lightskyblue;
+}
+
+.calculatorContainer {
+
+
+    background-color: greenyellow;
+    border: 5px solid yellow;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    
+}
+
+
+
+
+.calculatorSurface {
+
+    background-color: black;
+    border: 5px solid orangered;
+    /*display: flex;
+    justify-content: center;
+    flex-direction: column; */
+}
+
+.displayBox {
+
+    background-color: white;
+    text-align: right;
+    margin: 10px;
+    border-radius: 12px;
+}
+
+
+button {
+
+    font-family: Roboto;
+    width: 125px;
+    height: 50px;
+    border-radius: 45%;
+}
+
+
+
+
+.buttonsBox {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 570px;
+    height: 490px;
+    
+}
