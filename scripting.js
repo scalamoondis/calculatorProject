@@ -14,7 +14,7 @@ const displayBox = document.querySelector(".displaybox");
 const allClearButton = document.querySelector("#allClearButton");
 const clearButton = document.querySelector("#clearButton");
 const floorDivisionButton = document.querySelector("#floorDivisionButton");
-const regularDivisionButton = document.querySelector("#regularDivisonButton");
+const regularDivisionButton = document.querySelector("#regularDivisionButton");
 const numberSevenButton = document.querySelector("#numberSevenButton");
 const numberEightButton = document.querySelector("#numberEightButton");
 const numberNineButton = document.querySelector("#numberNineButton");
@@ -37,35 +37,37 @@ const equalsButton = document.querySelector("#equalsButton");
 allClearButton.addEventListener("click", ACbuttonfunction);
 clearButton.addEventListener("click", clearButtonfunction);
 floorDivisionButton.addEventListener("click", floorDivisionButtonfunction);
+regularDivisionButton.addEventListener("click", regularDivisionButtonfunction);
+numberSevenButton.addEventListener("click", numberSevenButtonfunction);
+numberEightButton.addEventListener("click", numberEightButtonfunction);
 
 
 
 
 /* Limit on display and result output divs */
+    
+function inputLimitCheck () {
 
-let userInputTotalText = document.getElementById("userinput").textContent;
-console.log(userInputTotalText);
+    let userInputTotalText = document.getElementById("userInput").textContent;
 
-if(userInputTotalText.length > 18) {
-    alert("You're kidding, right? Try something smaller.");
-    ACbuttonfunction();
+    if(userInputTotalText.length >= 18) {
+        alert("You're kidding, right? Try something smaller.");
+        ACbuttonfunction();
+        
+    };
+
 };
 
 
-
-
-
-
-
-
-
+/* Button functions */
 
 
 function ACbuttonfunction () {
 
     document.getElementById("userInput").textContent = "0";
     document.getElementById("resultOutput").textContent = "";
-
+    currentState = 0;
+    
 
 };
 
@@ -73,21 +75,88 @@ function ACbuttonfunction () {
 function clearButtonfunction () {
 
    let text = document.getElementById("userInput").textContent;
-   let newText = text.substring(0, text.length-1);
-   document.getElementById("userInput").textContent = newText;
+    if(text.length == 1) {
+        currentState = 0;
+        document.getElementById("userInput").textContent = "0";
+    }else{
+        let newText = text.substring(0, text.length-1);
+        document.getElementById("userInput").textContent = newText;
+    };
 
 };
 
 
 function floorDivisionButtonfunction () {
 
+    inputLimitCheck();
     let inputBox = document.getElementById("userInput");
     if(currentState == 0) {
-        let text = "%";
-        inputBox.textContent = text;
+        alert("Input a number first!");
+
     }else{
         let text = document.createTextNode("%");
         inputBox.appendChild(text);
     };
+
+};
+
+
+function regularDivisionButtonfunction () {
+
+    inputLimitCheck();
+    let inputBox = document.getElementById("userInput");
+    if(currentState == 0) {
+        alert("Input a number first!");
+
+    }else{
+        let text = document.createTextNode("÷");
+        inputBox.appendChild(text);
+    };
+
+};
+
+
+function numberSevenButtonfunction () {
+
+    inputLimitCheck();
+    let inputBox = document.getElementById("userInput");
+    if(currentState == 0) {
+        document.getElementById("userInput").textContent = "7";
+        currentState = 1;
+
+    }else{
+        let text = document.createTextNode("7");
+        inputBox.appendChild(text);
+    };
+
+};
+
+function numberEightButtonfunction () {
+
+    inputLimitCheck();
+    let inputBox = document.getElementById("userInput");
+    if(currentState == 0) {
+        document.getElementById("userInput").textContent = "8";
+        currentState = 1;
+
+    }else{
+        let text = document.createTextNode("8");
+        inputBox.appendChild(text);
+    };
+
+};
+
+
+
+
+
+
+function buttonInputFunction () {
+
+    inputLimitCheck();
+    let inputBox = document.getElementById("userInput");
+    
+
+
 
 };
