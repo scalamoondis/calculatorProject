@@ -394,6 +394,47 @@ function floorDivisionOperationfunction (firstNumber, secondNumber) {
 
 function calculationFunction () {
 
+    let firstPosition = 1;
+    let mathProblem = document.getElementById("userInput").textContent;
+    let operators = ["%", "*", "+", "-", "÷"];
+    let includedOperators = [];
+    let operatorIndexes = {};
+    
+    let number1;
+    let number2;
+
+
+    for(let i = 0;i < operators.length; i++) {
+        if(mathProblem.includes(operators[i]) == true) {
+            includedOperators.push(operators[i]);
+        }else{
+            continue;
+        };
+    };
+
+    for(let i = 0;i < includedOperators.length; i++) {
+        operatorIndexes[includedOperators[i]] = {frequency: 0, indexes: []};
+    };
+
+    let sortedIncludedOperators = Object.keys(operatorIndexes).sort();
+
+    for(let i = 0;i < sortedIncludedOperators.length; i++) {
+        for(let j = 1;j < mathProblem.length; j++) {
+            if(mathProblem[j] == sortedIncludedOperators[i]) {
+                operatorIndexes.sortedIncludedOperators[i].frequency += 1;
+                operatorIndexes.sortedIncludedOperators[i].indexes.push(j);
+
+            };
+
+        };
+
+
+    };
+
+
+
+
+
 
 
 
