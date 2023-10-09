@@ -421,7 +421,6 @@ function calculationFunction () {
             signCount += 1;
             i = j+1;
             n++;
-
         };
 
         if(signCount == accountedSigns) {
@@ -433,10 +432,28 @@ function calculationFunction () {
     };
 
 
-
-
-
-
+    let total = 0;
+    for(let i = 0;i < seperatedProblem.length; i++) {
+        if(seperatedProblem[i] == '+') {
+            total = additionOperationfunction(total, seperatedProblem[i+1]);
+            i++;
+        }else if(seperatedProblem[i] == '-') {
+            total = subtractionOperationfunction(total, seperatedProblem[i+1]);
+            i++;
+        }else if(seperatedProblem[i] == '*') {
+            total = multiplicationOperationfunction(total, seperatedProblem[i+1]);
+            i++;
+        }else if(seperatedProblem[i] == '÷') {
+            total = divisionOperationfunction(total, seperatedProblem[i+1]);
+            i++;
+        }else if(seperatedProblem[i] == '%') {
+           total = floorDivisionOperationfunction(total, seperatedProblem[i+1]);
+           i++;
+        }else {
+            total += seperatedProblem[i];
+        };
+        
+    };
 
 
 };
