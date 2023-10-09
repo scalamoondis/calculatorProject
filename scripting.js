@@ -394,14 +394,10 @@ function floorDivisionOperationfunction (firstNumber, secondNumber) {
 
 function calculationFunction () {
 
-    let firstPosition = 1;
     let mathProblem = document.getElementById("userInput").textContent;
     let operators = ["%", "*", "+", "-", "÷"];
     let includedOperators = [];
-    let operatorIndexes = {};
-    
-    let number1;
-    let number2;
+    let seperatedProblem = [];
 
 
     for(let i = 0;i < operators.length; i++) {
@@ -412,25 +408,29 @@ function calculationFunction () {
         };
     };
 
-    for(let i = 0;i < includedOperators.length; i++) {
-        operatorIndexes[includedOperators[i]] = {frequency: 0, indexes: []};
-    };
+    let accountedSigns = includedOperators.length;
+    let accountedNumbers = includedOperators.length+1;
+    let signCount = 0;
 
-    let sortedIncludedOperators = Object.keys(operatorIndexes).sort();
-
-    for(let i = 0;i < sortedIncludedOperators.length; i++) {
-        for(let j = 1;j < mathProblem.length; j++) {
-            if(mathProblem[j] == sortedIncludedOperators[i]) {
-                operatorIndexes.sortedIncludedOperators[i].frequency += 1;
-                operatorIndexes.sortedIncludedOperators[i].indexes.push(j);
-
-            };
+    for(let i = 0, j = 0, n = 0;n < accountedNumbers; j++) {
+        if(includedOperators.includes(mathProblem[j]) == true) {
+            let number = mathProblem.substring(i,j);
+            let sign = mathProblem[j];
+            seperatedProblem.push(number);
+            seperatedProblem.push(sign);
+            signCount += 1;
+            i = j+1;
+            n++;
 
         };
 
+        if(signCount == accountedSigns) {
+            let number = mathProblem.substring(i);
+            seperatedProblem.push(number);
+            n++;
+        };
 
     };
-
 
 
 
