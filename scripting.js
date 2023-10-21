@@ -3,8 +3,7 @@
 let currentState = 1;
 
 
-/* Setting initial value for calculations */
-let calculation = 0;
+
 
 
 
@@ -52,6 +51,7 @@ numberTwoButton.addEventListener("click", numberTwoButtonfunction);
 numberThreeButton.addEventListener("click", numberThreeButtonfunction);
 multiplicationButton.addEventListener("click", multiplicationButtonfunction);
 numberZeroButton.addEventListener("click", numberZeroButtonfunction);
+equalsButton.addEventListener("click", equalsButtonfunction);
 
 
 
@@ -341,7 +341,7 @@ function numberZeroButtonfunction () {
 
 
 function equalsButtonfunction () {
-
+    calculationFunction();
 };
 
 
@@ -414,7 +414,7 @@ function calculationFunction () {
 
     for(let i = 0, j = 0, n = 0;n < accountedNumbers; j++) {
         if(includedOperators.includes(mathProblem[j]) == true) {
-            let number = mathProblem.substring(i,j);
+            let number = Number(mathProblem.substring(i,j));
             let sign = mathProblem[j];
             seperatedProblem.push(number);
             seperatedProblem.push(sign);
@@ -424,7 +424,7 @@ function calculationFunction () {
         };
 
         if(signCount == accountedSigns) {
-            let number = mathProblem.substring(i);
+            let number = Number(mathProblem.substring(i));
             seperatedProblem.push(number);
             n++;
         };
@@ -455,5 +455,16 @@ function calculationFunction () {
         
     };
 
+    document.getElementById("resultOutput").textContent = total;
 
 };
+
+
+/* Style and Hover effect functions */
+
+function hoverButtonFunction () {
+
+    
+
+
+}
